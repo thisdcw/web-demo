@@ -1,0 +1,75 @@
+<template>
+  <div>
+    <div class="card mb10">
+      <h4 class="title">简介</h4>
+      <span class="text">
+        一款基于 Vue3.5、TypeScript5.6、Vite6、Pinia、Element-Plus 的后台管理框架。
+      </span>
+    </div>
+    <div class="card mb10">
+      <h4 class="title">项目信息</h4>
+      <el-descriptions :column="2" border>
+        <el-descriptions-item label="版本号" label-align="left">
+          <el-tag>{{ version }}</el-tag>
+        </el-descriptions-item>
+        <el-descriptions-item label="发布时间" label-align="left">
+          <el-tag>{{ lastBuildTime }}</el-tag>
+        </el-descriptions-item>
+      </el-descriptions>
+    </div>
+    <div class="card mb10">
+      <h4 class="title">生产环境依赖</h4>
+      <el-descriptions :column="3" border>
+        <el-descriptions-item v-for="(value, key) in dependencies" :key="key" width="400px" :label="key">
+          <el-tag type="info">
+            {{ value }}
+          </el-tag>
+        </el-descriptions-item>
+      </el-descriptions>
+    </div>
+    <div class="card">
+      <h4 class="title">开发环境依赖</h4>
+      <el-descriptions :column="3" border>
+        <el-descriptions-item v-for="(value, key) in devDependencies" :key="key" width="400px" :label="key">
+          <el-tag type="info">
+            {{ value }}
+          </el-tag>
+        </el-descriptions-item>
+      </el-descriptions>
+    </div>
+    <i :class="['iconfont', 'icon-suoxiao']"></i>
+  </div>
+</template>
+
+<script setup lang="ts">
+import {computed} from "vue";
+import {useAuthStore} from "@/stores/modules/auth";
+
+const {pkg, lastBuildTime} = __APP_INFO__;
+const {dependencies, devDependencies, version} = pkg;
+
+const authStore = useAuthStore();
+// const menuList = computed(() => authStore.showMenuListGet);
+// console.log(menuList.value)
+</script>
+
+<style lang="scss" scoped>
+.card {
+  .title {
+    margin: 0 0 15px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--el-text-color-primary);
+  }
+
+  .text {
+    font-size: 15px;
+    line-height: 25px;
+    color: var(--el-text-color-primary);
+
+    .el-link {
+      font-size: 15px;
+    }
+  }
+}
+</style>
