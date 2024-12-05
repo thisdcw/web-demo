@@ -3,7 +3,7 @@
     <div class="card mb10">
       <h4 class="title">简介</h4>
       <span class="text">
-        一款基于 Vue3.5、TypeScript5.6、Vite6、Pinia、Element-Plus 的后台管理框架。
+         一款基于 Vue3.5、TypeScript5.6、Vite6、Pinia、Element-Plus 的后台管理框架
       </span>
     </div>
     <div class="card mb10">
@@ -37,20 +37,13 @@
         </el-descriptions-item>
       </el-descriptions>
     </div>
-    <i :class="['iconfont', 'icon-suoxiao']"></i>
+
   </div>
 </template>
 
-<script setup lang="ts">
-import {computed} from "vue";
-import {useAuthStore} from "@/stores/modules/auth";
-
+<script setup lang="ts" name="about">
 const {pkg, lastBuildTime} = __APP_INFO__;
 const {dependencies, devDependencies, version} = pkg;
-
-const authStore = useAuthStore();
-// const menuList = computed(() => authStore.showMenuListGet);
-// console.log(menuList.value)
 </script>
 
 <style lang="scss" scoped>
@@ -65,11 +58,15 @@ const authStore = useAuthStore();
   .text {
     font-size: 15px;
     line-height: 25px;
-    color: var(--el-text-color-primary);
+    color: var(--el-text-color-regular);
 
     .el-link {
       font-size: 15px;
     }
   }
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
 }
 </style>

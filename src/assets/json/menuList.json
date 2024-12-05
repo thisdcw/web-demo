@@ -6,7 +6,7 @@
       "name": "home",
       "component": "/home/index",
       "meta": {
-        "icon": "",
+        "icon": "HomeFilled",
         "title": "主页",
         "isLink": "",
         "isHide": false,
@@ -16,16 +16,30 @@
       }
     },
     {
+      "path": "/dashboard/index",
+      "name": "dashboard",
+      "component": "/dashboard/index",
+      "meta": {
+        "icon": "HomeFilled",
+        "title": "数据面板",
+        "isLink": "",
+        "isHide": false,
+        "isFull": false,
+        "isAffix": false,
+        "isKeepAlive": false
+      }
+    },
+    {
       "path": "/about/index",
       "name": "about",
       "component": "/about/index",
       "meta": {
-        "icon": "",
+        "icon": "InfoFilled",
         "title": "关于",
         "isLink": "",
         "isHide": false,
         "isFull": false,
-        "isAffix": true,
+        "isAffix": false,
         "isKeepAlive": false
       }
     }

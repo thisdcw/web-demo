@@ -1,6 +1,7 @@
 import {useAuthStore} from "@/stores/modules/auth";
 import router from "@/router";
 import {RouteRecordRaw} from "vue-router";
+import {HOME_URL} from "@/config";
 
 const modules = import.meta.glob("@/views/**/*.vue");
 

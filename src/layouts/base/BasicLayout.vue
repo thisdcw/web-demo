@@ -1,40 +1,51 @@
 <script setup lang="ts">
-
+import {useGlobalStore} from "@/stores/modules/global";
 import {computed} from "vue";
+import {Expand, Fold} from "@element-plus/icons-vue";
 import {useAuthStore} from "@/stores/modules/auth";
-import SubMenu from "@/layouts/modules/SubMenu.vue";
-import Main from "@/layouts/modules/Main.vue";
 import {useRoute} from "vue-router";
+import SubMenu from "@/layouts/components/SubMenu.vue";
+import Main from "@/layouts/components/Main.vue";
+import Footer from "@/layouts/components/Footer.vue";
 
-const route = useRoute();
+
+const globalStore = useGlobalStore();
 const authStore = useAuthStore();
+const route = useRoute();
 
 const menuList = computed(() => authStore.showMenuListGet);
-console.log(menuList.value);
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
+const isCollapse = computed(() => globalStore.isCollapse);
+const changeCollapse = () => globalStore.setGlobalState("isCollapse", !globalStore.isCollapse);
 </script>
 
 <template>
   <div class="common-layout">
-    <el-container class="layout">
+    <el-container>
       <el-header>
         <div class="header-lf mask-image">
           <div class="logo flx-center">
             <img class="logo-img" src="@/assets/images/vue.svg" alt="logo"/>
-            <span class="logo-text">XXX后台</span>
+            <span class="logo-text">xxx</span>
+            <el-icon @click="changeCollapse">
+              <Fold v-show="!isCollapse"/>
+              <Expand v-show="isCollapse"/>
+            </el-icon>
           </div>
+        </div>
+        <div>
         </div>
       </el-header>
       <el-container class="classic-content">
         <el-aside>
-          <div class="aside-box">
+          <div class="aside-box" :style="{ width: isCollapse ? '65px' : '210px' }">
             <el-scrollbar>
               <el-menu
                   :router="false"
                   :collapse-transition="false"
                   :default-active="activeMenu"
                   :unique-opened="true"
-                  class="el-menu-vertical-demo"
+                  :collapse="isCollapse"
               >
                 <SubMenu :menu-list="menuList"/>
               </el-menu>
@@ -42,9 +53,10 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
           </div>
         </el-aside>
         <el-container class="classic-main">
-          <el-main>
             <Main/>
-          </el-main>
+          <el-footer>
+            <Footer/>
+          </el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -52,5 +64,5 @@ const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu
 </template>
 
 <style scoped lang="scss">
-@use "index.scss" as *;
+@use "index.scss";
 </style>

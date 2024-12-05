@@ -3,9 +3,9 @@
 </script>
 
 <template>
-  <div>
-    <router-view/>
-  </div>
+<div>
+  数据面板
+</div>
 </template>
 
 <style scoped lang="scss">
