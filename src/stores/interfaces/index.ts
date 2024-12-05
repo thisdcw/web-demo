@@ -8,6 +8,7 @@ export interface GlobalStates {
     breadcrumb: boolean,
     tabs: boolean,
     maximize: boolean,
+    tabsIcon: boolean,
 }
 
 export interface AuthState {

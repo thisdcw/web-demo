@@ -7,6 +7,7 @@ import {useRoute} from "vue-router";
 import SubMenu from "@/layouts/components/SubMenu.vue";
 import Main from "@/layouts/components/Main.vue";
 import Footer from "@/layouts/components/Footer.vue";
+import ToolBarRight from "@/layouts/components/ToolBarRight.vue";
 
 
 const globalStore = useGlobalStore();
@@ -25,8 +26,8 @@ const changeCollapse = () => globalStore.setGlobalState("isCollapse", !globalSto
       <el-header>
         <div class="header-lf mask-image">
           <div class="logo flx-center">
-            <img class="logo-img" src="@/assets/images/vue.svg" alt="logo"/>
-            <span class="logo-text">xxx</span>
+            <img class="logo-img" src="@/assets/images/logo.jpeg" alt="logo"/>
+            <span class="logo-text">姬霓太美</span>
             <el-icon @click="changeCollapse">
               <Fold v-show="!isCollapse"/>
               <Expand v-show="isCollapse"/>
@@ -34,6 +35,7 @@ const changeCollapse = () => globalStore.setGlobalState("isCollapse", !globalSto
           </div>
         </div>
         <div>
+          <ToolBarRight/>
         </div>
       </el-header>
       <el-container class="classic-content">
@@ -53,7 +55,7 @@ const changeCollapse = () => globalStore.setGlobalState("isCollapse", !globalSto
           </div>
         </el-aside>
         <el-container class="classic-main">
-            <Main/>
+          <Main/>
           <el-footer>
             <Footer/>
           </el-footer>

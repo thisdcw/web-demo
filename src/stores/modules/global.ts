@@ -11,6 +11,7 @@ export const useGlobalStore = defineStore("demo-global", {
         breadcrumb: true,
         maximize: false,
         tabs: true,
+        tabsIcon: true,
     }),
     getters: {},
     actions: {

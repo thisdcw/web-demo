@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="about">
+<script setup lang="ts">
 const {pkg, lastBuildTime} = __APP_INFO__;
 const {dependencies, devDependencies, version} = pkg;
 </script>

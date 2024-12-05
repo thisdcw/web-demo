@@ -6,7 +6,7 @@
       "name": "home",
       "component": "/home/index",
       "meta": {
-        "icon": "HomeFilled",
+        "icon": "House",
         "title": "主页",
         "isLink": "",
         "isHide": false,
@@ -20,7 +20,7 @@
       "name": "dashboard",
       "component": "/dashboard/index",
       "meta": {
-        "icon": "HomeFilled",
+        "icon": "DataLine",
         "title": "数据面板",
         "isLink": "",
         "isHide": false,
@@ -34,7 +34,7 @@
       "name": "about",
       "component": "/about/index",
       "meta": {
-        "icon": "InfoFilled",
+        "icon": "Position",
         "title": "关于",
         "isLink": "",
         "isHide": false,
